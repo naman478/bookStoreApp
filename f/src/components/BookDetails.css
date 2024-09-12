@@ -1,0 +1,57 @@
+.book-detail-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .book-detail-card {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .book-detail-image {
+    max-width: 200px;
+    margin-right: 20px;
+  }
+  
+  .book-detail-info {
+    max-width: 600px;
+  }
+  
+  .book-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .book-author {
+    font-style: italic;
+  }
+  
+  .book-price {
+    color: green;
+  }
+  
+  .recommendations {
+    margin-top: 40px;
+  }
+  
+  .recommendation-section {
+    margin-bottom: 20px;
+  }
+  
+  .recommended-books {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .recommended-book {
+    flex: 1 1 200px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .recommended-book img {
+    max-width: 100px;
+    height: auto;
+  }
+  
