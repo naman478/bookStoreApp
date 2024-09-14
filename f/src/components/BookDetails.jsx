@@ -7,8 +7,7 @@ const BookDetails = () => {
   const { id } = useParams();
   const [book, setBook] = useState(null);
   const [recommendedByCategory, setRecommendedByCategory] = useState([]);
-  const [recommendedByAuthor, setRecommendedByAuthor] = useState([]);
-  const [recommendedByTags, setRecommendedByTags] = useState([]);
+  const [recommendedByDescription, setRecommendedByDescription] = useState([]);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -16,19 +15,21 @@ const BookDetails = () => {
         const res = await axios.get(`http://localhost:4001/book/${id}`);
         setBook(res.data);
 
-        // Fetch recommendations
-        const categoryRes = await axios.get(`http://localhost:4001/recommendations/category/${res.data.category}`);
+        const categoryRes = await axios.get(
+          `http://localhost:4001/book/recommendations/category/${res.data.category}`
+        );
         setRecommendedByCategory(categoryRes.data);
 
-        const authorRes = await axios.get(`http://localhost:4001/recommendations/author/${res.data.author}`);
-        setRecommendedByAuthor(authorRes.data);
+        const descriptionRes = await axios.get(
+          `http://localhost:4001/book/recommendations/description/${res.data.title}`
+        );
+        setRecommendedByDescription(descriptionRes.data.recommendations);
 
-        const tagsRes = await axios.get(`http://localhost:4001/recommendations/tags/${res.data.tags.join(',')}`);
-        setRecommendedByTags(tagsRes.data);
       } catch (error) {
         console.error("Error fetching book details or recommendations: ", error);
       }
     };
+
     fetchBook();
   }, [id]);
 
@@ -62,26 +63,11 @@ const BookDetails = () => {
         </div>
 
         <div className="recommendation-section">
-          <h3>Recommended by Author</h3>
+          <h3>Recommended by Description</h3>
           <div className="recommended-books">
-            {recommendedByAuthor.map((item) => (
-              <div key={item._id} className="recommended-book">
-                <img src={item.image} alt={item.name} />
-                <h4>{item.name}</h4>
-                <p>{item.author}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="recommendation-section">
-          <h3>Recommended by Tags</h3>
-          <div className="recommended-books">
-            {recommendedByTags.map((item) => (
-              <div key={item._id} className="recommended-book">
-                <img src={item.image} alt={item.name} />
-                <h4>{item.name}</h4>
-                <p>{item.author}</p>
+            {recommendedByDescription.map((item, index) => (
+              <div key={index} className="recommended-book">
+                <h4>{item}</h4> {/* Display the string directly */}
               </div>
             ))}
           </div>

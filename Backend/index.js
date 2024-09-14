@@ -3,6 +3,7 @@ const bookRoutes = require('./route/bookRoutes');
 const userRoutes = require('./route/userRoutes');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const axios=require('axios');
 
 // dotenv.config();
 const app = express();
@@ -18,7 +19,16 @@ mongoose.connect('mongodb+srv://namanjhanwar953:naman@cluster0.vgwureu.mongodb.n
 // Middleware
 app.use(cors());
 app.use(express.json());
-
+// app.get('/book/<book_id>', async (req, res) => {
+//   console.log("i am here");
+//   try {
+//       const response = await axios.get('http://localhost:4001//book/<book_id>'); 
+//       res.json(response.data);
+//   } catch (err) {
+//       console.error(err);
+//       res.status(500).send('Error fetching books from Flask API');
+//   }
+// });
 // Routes
 app.use('/book', bookRoutes);
 app.use('/user', userRoutes);
