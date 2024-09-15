@@ -1,57 +1,120 @@
+/* Container Styles */
 .book-detail-container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
-  
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff; /* Reverted to the previous background color */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Book Detail Card */
+.book-detail-card {
+  display: flex;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Book Image */
+.book-detail-image img {
+  max-width: 150px; /* Reduced image size */
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Book Info */
+.book-detail-info {
+  padding: 20px;
+  max-width: 600px;
+}
+
+/* Book Title */
+.book-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Author Style */
+.book-author {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Book Price */
+.book-price {
+  color: #2a9d8f;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Recommendations Section */
+.recommendations {
+  margin-top: 50px;
+}
+
+.recommendation-section {
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Recommended Books Grid */
+.recommended-books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Recommended Book Card */
+.recommended-book {
+  flex: 1 1 200px;
+  margin: 10px;
+  text-align: center;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect on Recommended Books */
+.recommended-book:hover {
+  transform: translateY(-10px);
+}
+
+/* Recommended Book Image */
+.recommended-book img {
+  max-width: 80px; /* Reduced image size for recommended books */
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
   .book-detail-card {
-    display: flex;
-    margin-bottom: 20px;
-  }
-  
-  .book-detail-image {
-    max-width: 200px;
-    margin-right: 20px;
-  }
-  
-  .book-detail-info {
-    max-width: 600px;
-  }
-  
-  .book-title {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .book-author {
-    font-style: italic;
-  }
-  
-  .book-price {
-    color: green;
-  }
-  
-  .recommendations {
-    margin-top: 40px;
-  }
-  
-  .recommendation-section {
-    margin-bottom: 20px;
-  }
-  
-  .recommended-books {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .recommended-book {
-    flex: 1 1 200px;
-    margin: 10px;
+    flex-direction: column;
     text-align: center;
   }
   
-  .recommended-book img {
-    max-width: 100px;
-    height: auto;
+  .book-detail-image {
+    margin-right: 0;
+    margin-bottom: 20px;
   }
-  
+
+  .book-detail-info {
+    max-width: 100%;
+  }
+
+  .recommended-book {
+    flex: 1 1 100%;
+  }
+}

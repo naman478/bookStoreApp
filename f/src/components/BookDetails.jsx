@@ -12,18 +12,28 @@ const BookDetails = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
+        // Fetch book details
         const res = await axios.get(`http://localhost:4001/book/${id}`);
         setBook(res.data);
 
+        // Fetch recommendations by category
         const categoryRes = await axios.get(
           `http://localhost:4001/book/recommendations/category/${res.data.category}`
         );
         setRecommendedByCategory(categoryRes.data);
 
+        // Fetch recommendations by description
         const descriptionRes = await axios.get(
           `http://localhost:4001/book/recommendations/description/${res.data.title}`
         );
         setRecommendedByDescription(descriptionRes.data.recommendations);
+
+        // Fetch book details for recommendations
+        const recommendedBooksRes = await axios.post(
+          "http://localhost:4001/book/titlee",
+          { titles: descriptionRes.data.recommendations }
+        );
+        setRecommendedByDescription(recommendedBooksRes.data);
 
       } catch (error) {
         console.error("Error fetching book details or recommendations: ", error);
@@ -46,6 +56,7 @@ const BookDetails = () => {
           <p className="book-price">${book.price}</p>
         </div>
       </div>
+
       <div className="recommendations">
         <h2>Recommended Books</h2>
 
@@ -57,6 +68,7 @@ const BookDetails = () => {
                 <img src={item.image} alt={item.name} />
                 <h4>{item.name}</h4>
                 <p>{item.author}</p>
+                <p>${item.price}</p>
               </div>
             ))}
           </div>
@@ -65,9 +77,12 @@ const BookDetails = () => {
         <div className="recommendation-section">
           <h3>Recommended by Description</h3>
           <div className="recommended-books">
-            {recommendedByDescription.map((item, index) => (
-              <div key={index} className="recommended-book">
-                <h4>{item}</h4> {/* Display the string directly */}
+            {recommendedByDescription.map((item) => (
+              <div key={item._id} className="recommended-book">
+                <img src={item.image} alt={item.name} />
+                <h4>{item.name}</h4>
+                <p>{item.author}</p>
+                <p>${item.price}</p>
               </div>
             ))}
           </div>
