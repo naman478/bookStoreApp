@@ -3,7 +3,7 @@
   max-width: 1200px;
   margin: auto;
   padding: 20px;
-  background-color: #fff; /* Reverted to the previous background color */
+  background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -11,7 +11,7 @@
 /* Book Detail Card */
 .book-detail-card {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 20px; /* Increased margin for better spacing */
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -20,15 +20,18 @@
 
 /* Book Image */
 .book-detail-image img {
-  max-width: 150px; /* Reduced image size */
-  border-radius: 8px;
-  object-fit: cover;
+  width: 100px; /* Fixed width to prevent it from growing too large */
+  height: 50px; /* Keep aspect ratio */
+  border-radius: 8px; /* Rounded corners */
+  object-fit: contain; /* Prevent cropping */
+  display: block; /* Ensures the image behaves like a block element */
+  margin: 0 auto; /* Centers the image */
 }
 
 /* Book Info */
 .book-detail-info {
   padding: 20px;
-  max-width: 600px;
+  max-width: 300px;
 }
 
 /* Book Title */
@@ -51,6 +54,26 @@
   color: #2a9d8f;
   font-size: 20px;
   font-weight: bold;
+  margin-bottom: 20px; /* Added margin for better spacing */
+}
+
+/* Buy Now Button */
+.buy-now-button {
+  background-color: #e53e3e; /* Highlighted color */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(229, 62, 62, 0.2);
+}
+
+/* Hover effect for the Buy Now button */
+.buy-now-button:hover {
+  background-color: #c53030;
+  transform: scale(1.05);
 }
 
 /* Recommendations Section */
@@ -69,13 +92,14 @@
 .recommended-books {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
 }
 
 /* Recommended Book Card */
 .recommended-book {
-  flex: 1 1 200px;
+  flex: 1 1 250px; /* Limit the card size to prevent full screen */
+  max-width: 250px; /* Ensure it doesn't stretch full screen */
   margin: 10px;
   text-align: center;
   background-color: white;
@@ -87,15 +111,61 @@
 
 /* Hover Effect on Recommended Books */
 .recommended-book:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px); /* Subtle hover effect */
 }
 
 /* Recommended Book Image */
 .recommended-book img {
-  max-width: 80px; /* Reduced image size for recommended books */
+  max-width: 80px; /* Smaller image size */
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Recommended Book Title */
+.recommended-book-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 5px;
+}
+
+/* Author, Title, Price Alignment */
+.recommended-book-info {
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Book Price in Recommendation */
+.recommended-book-price {
+  color: #2a9d8f;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Category Tag */
+.category-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: #f4a261; /* A different color to stand out */
+  background-color: #fce4d6; /* Light background color */
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Ensure that image, title, author, and price are in the same alignment */
+.recommended-book img,
+.recommended-book-title,
+.recommended-book-author,
+.recommended-book-price {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* Media Queries for Responsiveness */
@@ -116,5 +186,6 @@
 
   .recommended-book {
     flex: 1 1 100%;
+    max-width: 100%; /* Ensure the card size adapts in smaller screens */
   }
 }

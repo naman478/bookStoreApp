@@ -1,0 +1,108 @@
+/* Container for the RateBook component */
+.rate-book-container {
+    max-width: 800px;
+    margin: 90px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Book Image */
+  .book-image {
+    width: 100%;
+    height: auto;
+    margin-left:210px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Heading */
+  .rate-book-container h2 {
+    margin-left:120px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Rating Section */
+  .rating-section,
+  .review-section {
+    margin-bottom: 20px;
+  }
+  
+  .rating-section label,
+  .review-section label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+    display: block; /* Make labels block elements for better spacing */
+  }
+  
+  /* Input Fields */
+  .rating-section input,
+  .review-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rating-section input:focus,
+  .review-section textarea:focus {
+    border-color: #2a9d8f;
+    outline: none; /* Remove default outline */
+  }
+  
+  /* Submit Button */
+  .submit-rating-btn {
+    background-color: #2a9d8f;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Center the button */
+  }
+  
+  .submit-rating-btn:hover {
+    background-color: #238f73; /* Darker shade on hover */
+    transform: scale(1.05); /* Subtle scale effect */
+  }
+  
+  /* Message for already rated */
+  .rate-book-container p {
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+    text-align: center; /* Center align the message */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .rate-book-container {
+      padding: 15px;
+    }
+  
+    .rate-book-container h2 {
+      font-size: 20px;
+    }
+  
+    .rating-section input,
+    .review-section textarea {
+      font-size: 14px;
+    }
+  
+    .submit-rating-btn {
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+  }
+  

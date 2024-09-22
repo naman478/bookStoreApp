@@ -63,8 +63,57 @@ const { getAllBooks, createBook } = require('../controller/bookController');
 const router = express.Router();
 const axios = require('axios');
 const Book = require('../model/bookModel');
+const Rating = require('../model/ratingModel');
 router.get('/', getAllBooks);
 router.post('/', createBook);
+
+// API to get top 5 popular books based on number of ratings
+router.get('/top-popular-books', async (req, res) => {
+  try {
+    const topBooks = await Rating.aggregate([
+      {
+        $group: {
+          _id: "$bookId",
+          avgRating: { $avg: "$rating" },
+          count: { $sum: 1 },
+        },
+      },
+      {
+        $lookup: {
+          from: 'books',
+          localField: '_id',
+          foreignField: '_id',
+          as: 'bookInfo',
+        },
+      },
+      {
+        $unwind: "$bookInfo",
+      },
+      {
+        $project: {
+          _id: 1,
+          avgRating: 1,
+          count: 1,
+          bookName: "$bookInfo.name",
+          author: "$bookInfo.author",
+          price: "$bookInfo.price",
+          category:"$bookInfo.category",
+          title: "$bookInfo.title",
+          image: "$bookInfo.image", // Assuming there's an image field
+          description: "$bookInfo.description", // Assuming there's a description field
+        },
+      },
+      { $sort: { avgRating: -1 } },
+      { $limit: 4 },
+    ]);
+    
+    res.json(topBooks);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+  
 
 router.post('/titlee', async (req, res) => {
     try {
@@ -90,7 +139,7 @@ router.get('/:id', async (req, res) => {
     const id = req.params.id;
     try {
         const response = await axios.get(`http://localhost:6000/book/${id}`);
-        console.log(response);
+        // console.log(response.data);
         res.json(response.data);
     } catch (err) {
         console.error(err);
@@ -101,9 +150,12 @@ router.get('/:id', async (req, res) => {
 // Recommendations by category
 router.get('/recommendations/category/:category', async (req, res) => {
     const category = req.params.category;
-    console.log(category);
+    console.log("iamhere");
+    // console.log(category);
     try {
         const response = await axios.get(`http://localhost:6000/book/recommendations/category/${category}`);
+        console.log(response);
+        console.log("iamhere");
         res.json(response.data);
     } catch (err) {
         console.error(err);

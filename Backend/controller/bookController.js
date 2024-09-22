@@ -32,7 +32,7 @@ const Book = require('../model/bookModel');
 //           "name": "Pride and Prejudice",
 //           "price": 8,
 //           "category": "Romance",
-//           "image": "https://c7.alamy.com/comp/C9129G/crime-and-punishment-by-feodor-dostoyevsky-C9129G.jpg",
+//           "image":  "http://images.amazon.com/images/P/1879384493.01.LZZZZZZZ.jpg",
 //           "title": "A romantic novel by Jane Austen",
 //           "author": "Jane Austen",
 //           "description": "A beloved romance novel that explores themes of love and social norms in a historical context."
@@ -41,7 +41,7 @@ const Book = require('../model/bookModel');
 //           "name": "Moby-Dick",
 //           "price": 18,
 //           "category": "Adventure",
-//           "image": "https://image.tmdb.org/t/p/original/wGnBI8o5Wbd7ZsXJb1emZtqeNtW.jpg",
+//           "image": "http://images.amazon.com/images/P/1414035004.01.LZZZZZZZ.jpg",
 //           "title": "An adventure novel by Herman Melville",
 //           "author": "Herman Melville",
 //           "description": "An epic adventure that follows a quest for vengeance and explores the human condition."
@@ -77,7 +77,7 @@ const Book = require('../model/bookModel');
 //           "name": "The Odyssey",
 //           "price": 13,
 //           "category": "Epic",
-//           "image": "https://monsieurdidot.com/wp-content/uploads/2020/02/The-Odyssey.jpg",
+//           "image": "http://images.amazon.com/images/P/0553582747.01.LZZZZZZZ.jpg",
 //           "title": "An epic poem by Homer",
 //           "author": "Homer",
 //           "description": "An epic tale of heroism and adventure, following the journey of a hero striving to return home."

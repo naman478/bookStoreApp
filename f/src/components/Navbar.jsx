@@ -42,13 +42,18 @@ function Navbar() {
         <a href="/">Home</a>
       </li>
       <li>
-        <a href="/course">Course</a>
+        <a href="/course">Books</a>
       </li>
-      <li>
-        <a>Contact</a>
-      </li>
+      {/* <li>
+        <a href="/admin">Admin</a>
+      </li> */}
       <li>
         <a>About</a>
+      </li>
+      <li>
+        <a href="/gifts" style={{width:"70px"}} className="btn bg-blue-500 text-white rounded-md hover:bg-blue-600">
+          Gift
+        </a>
       </li>
     </>
   );

@@ -1,6 +1,7 @@
 const express = require('express');
 const bookRoutes = require('./route/bookRoutes');
 const userRoutes = require('./route/userRoutes');
+const ratingRoutes = require('./route/ratingRoutes');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const axios=require('axios');
@@ -30,6 +31,7 @@ app.use(express.json());
 //   }
 // });
 // Routes
+app.use('/', ratingRoutes);
 app.use('/book', bookRoutes);
 app.use('/user', userRoutes);
 
