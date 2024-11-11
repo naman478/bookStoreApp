@@ -1,0 +1,90 @@
+.book-detail-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.book-detail-card {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.book-detail-image {
+  max-width: 200px;
+  margin-right: 20px;
+}
+
+.book-detail-info {
+  max-width: 600px;
+}
+
+.book-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.book-author {
+  font-style: italic;
+  color: #555;
+}
+
+.book-price {
+  color: green;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* Buy Now button styling */
+.buy-now-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff5a5f;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.buy-now-button:hover {
+  background-color: #e04d4f;
+}
+
+.recommendations {
+  margin-top: 40px;
+}
+
+.recommendation-section {
+  margin-bottom: 20px;
+}
+
+.recommended-books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.recommended-book {
+  flex: 1 1 200px;
+  margin: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recommended-book:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.recommended-book img {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}

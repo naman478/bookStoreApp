@@ -1,0 +1,67 @@
+.purchase-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.purchase-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.purchase-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.purchase-button {
+  display: inline-block;
+  padding: 25px 60px;
+  background-color: #ff5a5f;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  width: 350px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.purchase-button:hover {
+  background-color: #e04d4f;
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.purchase-button:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 90, 95, 0.7);
+}
+
+.purchase-image {
+  margin-top: 30px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .purchase-buttons-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .purchase-button {
+    width: 90%;
+    padding: 20px 30px;
+    font-size: 24px;
+  }
+}
