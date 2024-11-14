@@ -10,8 +10,6 @@ router.post("/", async (req, res) => {
 
   try {
     let purchase = await Purchase.findOne({ userId });
-
-    // If a purchase record for the user exists, update it; otherwise, create a new one
     if (purchase) {
       purchase.bookIds.push(bookId);
     } else {
@@ -33,17 +31,14 @@ router.post("/", async (req, res) => {
 // Route to get all purchased books for a specific user
 router.get("/:userId", async (req, res) => {
   const { userId } = req.params;
+  console.log(userId);
 
   try {
-    // Find the user's purchase record and populate book details
-    console.log("hii1")
-    const purchase = await Purchase.findOne({ userId }).populate({
-      path: "bookIds", // Path of the reference field
-      select: "name author price image" // Fields to retrieve from the Book model
-    });
-    console.log("hii2")
+    console.log("Fetching purchases for user:", userId);
+    const purchase = await Purchase.findOne({ userId }).populate('bookIds');
+    console.log("Purchase found:", purchase);
 
-    if (purchase) {
+    if (purchase && purchase.bookIds.length > 0) {
       res.status(200).json({ purchasedBooks: purchase.bookIds });
     } else {
       res.status(404).json({ message: "No purchases found for this user." });

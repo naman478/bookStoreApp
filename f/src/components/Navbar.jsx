@@ -48,7 +48,7 @@ function Navbar() {
         <a>Contact</a>
       </li>
       <li>
-        <a>About</a>
+        <a href="/purchase/[object%20Object]">Dashboard</a>
       </li>
     </>
   );
@@ -61,7 +61,7 @@ function Navbar() {
             : ""
         }`}
       >
-        <div className="navbar ">
+        <div className="navbar " style={{}}>
           <div className="navbar-start">
             <div className="dropdown">
               <div

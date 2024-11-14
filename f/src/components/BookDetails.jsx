@@ -42,7 +42,7 @@ const BookDetails = () => {
         bookId: id,
       });
       alert("Book purchased successfully!");
-      navigate(`/purchase/${id}`);
+      navigate(`/purchase/${userId}`);
     } catch (error) {
       console.error("Error during purchase:", error);
       alert("Failed to purchase the book. Please try again.");
